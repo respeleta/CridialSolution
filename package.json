@@ -1,0 +1,38 @@
+{
+  "name": "cridial-solution-api",
+  "version": "1.0.0",
+  "description": "API para la gestión de usuarios y referidos en Cridial Solution",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "dev": "ts-node-dev --respawn src/app.ts",
+    "build": "tsc",
+    "test": "jest",
+    "prettier": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.1.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.7",
+    "@types/supertest": "^2.0.11",
+    "jest": "^29.7.0",
+    "jest-mock": "^29.7.0",
+    "prettier": "^2.4.1",
+    "prisma": "^6.1.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "license": "MIT"
+}

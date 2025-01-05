@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  identification_number String   @unique
+  email               String   @unique
+  referral_email       String?
+  referrals           UserReferral[] @relation("Referrals") // Relación con UserReferral
+  referredBy          UserReferral[] @relation("ReferredUser") // Relación inversa para referredUser
+}
+
+model UserReferral {
+  id              Int    @id @default(autoincrement())
+  userid          Int
+  referreduserid  Int
+  user            User   @relation("Referrals", fields: [userid], references: [id])
+  referredUser    User   @relation("ReferredUser", fields: [referreduserid], references: [id])
+
+  @@unique([userid, referreduserid])
+}
+
